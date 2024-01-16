@@ -1,4 +1,7 @@
 from django.urls import path
-from admin_app.views import *
+from auth_app.views import *
 
-urlpatterns = []
+urlpatterns = [
+     path('admin/login/', admin_login, name='admin-login'),
+     path('logout/', logout_view, name='logout'),
+]
