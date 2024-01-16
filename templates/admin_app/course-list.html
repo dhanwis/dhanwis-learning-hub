@@ -1,0 +1,64 @@
+{% extends "admin_app/base.html" %}
+{% load static %}
+{% block content %}
+{% include 'admin_app/header.html' %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Course List</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image</th>
+                    <th scope="col">heading</th>
+                    <th scope="col">description</th>
+                    
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for course in courses %}
+                  <tr>
+                    <th scope="row">{{ foorloop.count}}</th>
+                    <td></td>
+                    <td>{{ course.heading }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>
+                        <span>Edit</span>
+                        <span>Delete</span>
+                    </td>
+                  </tr>
+                {% endfor %}
+                  
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
+
+{% endblock content %}
