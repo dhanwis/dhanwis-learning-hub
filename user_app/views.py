@@ -8,14 +8,14 @@ def index(request):
     context = {
         'current_page': current_page,
     }
-    return render(request, 'user/index.html', context)
+    return render(request, 'user_app/index.html', context)
 
 def about(request):
     current_page = 'about'
     context = {
         'current_page': current_page,
     }
-    return render(request, 'user/about.html', context)
+    return render(request, 'user_app/about.html', context)
 
 def courses(request):
     current_page = 'courses'
@@ -24,14 +24,14 @@ def courses(request):
         'current_page': current_page,
         'courses' : courses,
     }
-    return render(request, 'user/courses.html', context)
+    return render(request, 'user_app/courses.html', context)
 
 def placements(request):
     current_page = 'placements'
     context = {
         'current_page': current_page,
     }
-    return render(request, 'user/placements.html', context)
+    return render(request, 'user_app/placements.html', context)
 
 
 def careers(request):
@@ -39,7 +39,7 @@ def careers(request):
     context = {
         'current_page': current_page,
     }
-    return render(request, 'user/careers.html', context)
+    return render(request, 'user_app/careers.html', context)
 
 
 def contact(request):
@@ -47,4 +47,4 @@ def contact(request):
     context = {
         'current_page': current_page,
     }
-    return render(request, 'user/contact.html', context)
+    return render(request, 'user_app/contact.html', context)

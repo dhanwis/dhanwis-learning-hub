@@ -65,9 +65,9 @@ def course_delete(request, course_id):
     except Course.DoesNotExist:
         return render(request, 'admin_app/page-not-found.html')  
 
-    if request.method == 'POST':
-        course.delete()
-        return redirect('course-list')
+    
+    course.delete()
+    return redirect('course-list')
 
 
         

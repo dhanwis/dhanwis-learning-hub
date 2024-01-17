@@ -25,45 +25,42 @@
               <h5 class="card-title">Course List</h5>
 
               <!-- Default Table -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">image</th>
-                    <th scope="col">heading</th>
-                    <th scope="col">description</th>
-                    
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                {% for course in courses %}
-                  <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>
-                      <a href="{{ course.image.url }}" target="_blank">
-                        <img src="{{ course.image.url }}" alt="" style="max-width: 100px;">
-                      </a>
-                      
-                    </td>
-                    <td>{{ course.heading }}</td>
-                    <td>{{ course.description }}</td>
-                    <td>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Heading</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for course in courses %}
+                    <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <td>
+                        <a href="{{ course.image.url }}" target="_blank">
+                          <img src="{{ course.image.url }}" alt="" class="img-fluid" style="max-width: 100px;">
+                        </a>
+                      </td>
+                      <td>{{ course.heading }}</td>
+                      <td>{{ course.description }}</td>
+                      <td>
                         <span>
-                          <!-- <a href="{% url 'course-edit' course.id %}">Edit</a></span> -->
-                        <span>
-                          <a href="{% url 'course-delete' course.id %}">
-                            Delete
-                          </a>
-                          
+                          <a href="{% url 'course-edit' course.id %}">Edit</a>
                         </span>
-                    </td>
-                  </tr>
-                {% endfor %}
-                  
-                </tbody>
-              </table>
+                        <span>
+                          <a href="{% url 'course-delete' course.id %}">Delete</a>
+                        </span>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              
               <!-- End Default Table Example -->
             </div>
           </div>
