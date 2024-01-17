@@ -33,6 +33,7 @@
                       <th scope="col">Image</th>
                       <th scope="col">Heading</th>
                       <th scope="col">Description</th>
+                      <th scope="col">Duraction</th>
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
@@ -47,6 +48,7 @@
                       </td>
                       <td>{{ course.heading }}</td>
                       <td>{{ course.description }}</td>
+                      <td>{{ course.duraction }}</td>
                       <td>
                         <span>
                           <a href="{% url 'course-edit' course.id %}">

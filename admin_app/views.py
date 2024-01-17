@@ -19,11 +19,13 @@ def course_add(request):
         image = request.FILES.get('image')
         heading = request.POST.get('heading')
         description = request.POST.get('description')
+        duraction = request.POST.get('duraction')
         
         course = Course(
             image=image,  
             heading=heading,
             description=description,
+            duraction=duraction,
         )
         course.save()
         return redirect('course-list')
@@ -46,9 +48,14 @@ def course_edit(request, course_id):
         return render(request, 'admin_app/page-not-found.html') 
 
     if request.method == 'POST':
-        course.image = request.FILES.get('image')
+        new_image = request.FILES.get('image')
+        if new_image:
+            course.image = new_image
+        else:
+            new_image = course.image
         course.heading = request.POST.get('heading')
         course.description = request.POST.get('description')
+        course.duraction = request.POST.get('duraction')
         course.save()
         return redirect('course-list')
 
@@ -65,7 +72,6 @@ def course_delete(request, course_id):
     except Course.DoesNotExist:
         return render(request, 'admin_app/page-not-found.html')  
 
-    
     course.delete()
     return redirect('course-list')
 
