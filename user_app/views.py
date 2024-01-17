@@ -48,3 +48,11 @@ def contact(request):
         'current_page': current_page,
     }
     return render(request, 'user_app/contact.html', context)
+
+
+def gallery(request):
+    current_page = 'gallery'
+    context = {
+        'current_page': current_page,
+    }
+    return render(request, 'user_app/gallery.html', context)
