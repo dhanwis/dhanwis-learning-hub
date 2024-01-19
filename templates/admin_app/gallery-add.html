@@ -6,11 +6,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Course Add</h1>
+      <h1>Gallery Add</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-          <li class="breadcrumb-item">Courses</li>
+          <li class="breadcrumb-item">Gallery</li>
           <li class="breadcrumb-item active">Add</li>
         </ol>
       </nav>
@@ -27,15 +27,10 @@
 
               <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="id_image">Image:</label>
-                <p>356 x 237 px</p>
-                <input type="file" class="form-control" name="image" required><br>
-                <label for="id_heading">Heading:</label>
-                <input type="text" class="form-control" name="heading" required><br>
-                <label for="id_description">Description:</label>
-                <input type="text" class="form-control" name="description" required><br>
-                <label for="id_duraction">duraction:</label>
-                <input type="text" class="form-control" name="duraction" required><br>         
+                <label for="image">Image:</label>
+                <input type="file" class="form-control" name="image" required>
+                
+                <br>         
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>
         
