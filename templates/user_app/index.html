@@ -578,7 +578,7 @@
          <!-- brand area end -->
 
 
-         <section class="brand__area pb-110">
+         <!-- <section class="brand__area pb-110">
             <div class="container">
                <div class="row fadeInUp">
                   <div class="col-xxl-12">
@@ -743,17 +743,40 @@
                                       
                </div>
               
-               <!-- <div class="row">
+               
+            </div>
+         </section> -->
+
+         <section class="brand__area pb-110">
+            <div class="container">
+               <div class="row fadeInUp">
                   <div class="col-xxl-12">
-                     <div class="brand__more text-center">
-                        <a href="{% url 'about' %}" class="link-btn">
-                           View all partners
-                           <i class="far fa-arrow-right"></i>
-                           <i class="far fa-arrow-right"></i>
-                        </a>
+                     <div class="brand__content text-center">
+                        <h3 class="brand__title">Trusted by 100 world's best companies</h3>
                      </div>
                   </div>
-               </div> -->
+               </div>
+               <div class="row"  style="background-color: #8080804d;
+                  border-radius: 10px;
+                  padding-top: 15px;
+                  padding-bottom: 20px;">
+                  
+                  {% for company in companies %}
+                     <div class="col-6 col-md-2  zoomIn" 
+                        style="display: flex;
+                        justify-content: center;">
+                        <a href="{{ company.url }}">
+                           <img src="{{ company.image.url}}" alt="" style="max-width: 160px;
+                           padding-top: 20px;">
+                        </a>
+                     </div>
+                  {% endfor %}
+
+               
+                                      
+               </div>
+              
+               
             </div>
          </section>
 

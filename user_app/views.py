@@ -1,12 +1,14 @@
 from django.shortcuts import render
-from admin_app.models import Course
+from admin_app.models import Course, Company
 
 # Create your views here.
 
 def index(request):
     current_page = 'index'
+    companies = Company.objects.all()
     context = {
         'current_page': current_page,
+        'companies' : companies,
     }
     return render(request, 'user_app/index.html', context)
 
