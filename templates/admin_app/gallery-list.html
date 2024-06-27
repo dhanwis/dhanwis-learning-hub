@@ -39,9 +39,12 @@
                     <tr>
                       <th scope="row">{{ forloop.counter }}</th>
                       <td>
-                        <a href="{{ gallery.image.url }}" target="_blank">
-                          <img src="{{ gallery.image.url }}" alt="" class="img-fluid" style="max-width: 100px;">
-                        </a>
+                        {% if gallery.image %}
+                          <a href="{{ gallery.image.url }}" target="_blank">
+                            <img src="{{ gallery.image.url }}" alt="" class="img-fluid" style="max-width: 100px;">
+                          </a>
+                        {% endif %}
+                          
                       </td>
                       
                       

@@ -282,9 +282,23 @@
          <!-- page title area end -->
 
          <!-- course area start -->
-         <section class="course__area pb-50 pt-50">
-            <div class="d-flex justify-content-center">
-               <img src="{% static 'user_app/assets/mine/img/launching-soon.png' %}" alt="" srcset="" class="launching-soon">
+         <section class="course__area pt-30 pb-120">
+            <div class="container">
+               <div class="row">
+                  {% for placement in placements %}
+                     <div class="col-12 col-md-3 d-flex justify-content-center pt-5">
+                        <div class="card" style="width: 18rem;">
+                           <img src="{{ placement.image.url }}" class="card-img-top" alt="...">
+                           <div class="card-body">
+                             <h5 class="card-title">{{ placement.company_name}}</h5>
+                             <p class="card-text">{{ placement.designation }}</p>
+                           </div>
+                        </div>
+                     </div>
+                  {% endfor %}
+                     
+               </div>
+               
             </div>
          </section>
          <!-- cta area end -->

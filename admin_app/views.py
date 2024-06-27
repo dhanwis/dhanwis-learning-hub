@@ -190,11 +190,17 @@ def gallery_detail(request, gallery_id):
 def gallery_add(request):
     if request.method == 'POST':
         image = request.FILES.get('image')
+        shorts_url = request.POST.get('shorts_url')
+        yt_url = request.POST.get('yt_url')
 
-        if image:
-            new_gallery_item = Gallery(image=image)
-            new_gallery_item.save()
-            return redirect('gallery-list')
+        
+        gallery = Gallery(
+            image=image,
+            shorts_url=shorts_url,
+            yt_url=yt_url
+            )
+        gallery.save()
+        return redirect('gallery-list')
         
     else:
         return render(request, 'admin_app/gallery-add.html')
@@ -219,3 +225,7 @@ def gallery_delete(request, gallery_id):
     gallery_item = Gallery.objects.get(id=gallery_id)
     gallery_item.delete()
     return redirect('gallery-list')
+
+
+
+

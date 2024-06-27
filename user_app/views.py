@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from admin_app.models import Course, Company
+from admin_app.models import Course, Company, Placement, Gallery
 
 # Create your views here.
 
@@ -30,8 +30,10 @@ def courses(request):
 
 def placements(request):
     current_page = 'placements'
+    placements = Placement.objects.all()
     context = {
         'current_page': current_page,
+        'placements' : placements
     }
     return render(request, 'user_app/placements.html', context)
 
@@ -54,7 +56,9 @@ def contact(request):
 
 def gallery(request):
     current_page = 'gallery'
+    galleries = Gallery.objects.all()
     context = {
         'current_page': current_page,
+        'galleries' : galleries
     }
     return render(request, 'user_app/gallery.html', context)

@@ -18,3 +18,5 @@ class Placement(models.Model):
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to='admin/gallery', null=True, blank=True)
+    shorts_url = models.CharField(max_length=500, null=True, blank=True)
+    yt_url = models.CharField(max_length=500, null=True, blank=True)

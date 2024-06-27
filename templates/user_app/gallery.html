@@ -263,93 +263,65 @@
 
         <!-- page title area start -->
         <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{% static 'user_app/assets/img/page-title/page-title.jpg' %}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="page__title-wrapper mt-110">
-                    <h3 class="page__title">Gallery</h3>                         
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                        </ol>
-                    </nav>
-                    </div>
-                </div>
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="page__title-wrapper mt-110">
+                     <h3 class="page__title">Gallery</h3>                         
+                     <nav aria-label="breadcrumb">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                           </ol>
+                     </nav>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        </section>
+
+           
+         </section>
         <!-- page title area end -->
 
 
         
+         <div class="container">
+            <div class="row pt-50">
+               {% for gallery in galleries %}
+                  {% if gallery.shorts_url %}
+                     <div class="col-12 col-md-4 ">
+                        <div class="">
+                           <iframe width="315" height="560" 
+                              src="https://www.youtube.com/embed/{{ gallery.shorts_url }}"
+                              title="YouTube video player"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen>
+                           </iframe>
+                        </div>
+                     </div>
+                  {% endif %}
 
-        <div class="row pt-50">
-            <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <iframe width="315" height="560" 
-                        src="https://www.youtube.com/embed/M0qiCuo32tM"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <iframe width="315" height="560" 
-                        src="https://www.youtube.com/embed/KGZfDclpl6k"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <iframe width="315" height="560" 
-                        src="https://www.youtube.com/embed/pohxjhGbvX0"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <iframe width="315" height="560" 
-                        src="https://www.youtube.com/embed/Nv2H4YAftgM"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <iframe width="315" height="560" 
-                        src="https://www.youtube.com/embed/nGlyd3OcC2g"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- <div class="col-12 col-md-3 ">
-                <div class="pt-5 ms-3 pl-3">
-                    <img src="{% static 'user_app/assets/img/blog/blog-1.jpg' %}" alt="">
-                </div>
-            </div> -->
+                  {% if gallery.image %}
+                     <div class="col-12 col-md-4 ">
+                        <div style="padding-right: 10px;">
+                           <img src="{{ gallery.image.url }}" alt="" width="350px">
+                        </div>
+                     </div>
+                  {% endif %}
+               {% endfor %}
+   
+           
+   
+               <!-- <div class="col-12 col-md-3 ">
+                  <div class="pt-5 ms-3 pl-3">
+                     <img src="{% static 'user_app/assets/img/blog/blog-1.jpg' %}" alt="">
+                  </div>
+               </div> -->
             
-        </div>
+            </div>
+         </div>
+         
         
 
          
