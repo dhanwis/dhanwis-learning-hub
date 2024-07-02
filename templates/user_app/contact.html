@@ -114,7 +114,7 @@
                                  style="
                                  max-width: 28px;
                                  margin-bottom: 3px;"> -->
-                                 <a href="" class="btn"
+                                 <a href="https://www.facebook.com/dhanwisacademy?mibextid=ZbWKwL" class="btn"
                                  style="border-radius: 100%;
                                  background-color: #0c87ef;
                                  color: #fff;">
@@ -145,7 +145,7 @@
                               <!-- <img class="logo-white" src="{% static 'user_app/assets/mine/img/instagram-icon.png' %}" alt="logo"
                                  style="max-width: 41px;
                                  margin-bottom: 3px;"> -->
-                                 <a href="" class="btn"
+                                 <a href="https://www.instagram.com/dhanwistechinfosolutions?igsh=aDRrMnpuNWpzaG5w" class="btn"
                                  style="border-radius: 100%;
                                  background-color: #f60577;
                                  color: #fff;
@@ -261,7 +261,7 @@
       <main>
 
          <!-- page title area start -->
-         <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{% static 'user_app/assets/img/page-title/page-title.jpg' %}">
+         <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{% static 'user_app/assets/img/page-title/contact.jpg' %}">
             <div class="container">
                <div class="row">
                   <div class="col-xxl-12">
@@ -291,7 +291,8 @@
                            <p>Have a question or just want to say hi? We'd love to hear from you.</p>
                         </div>
                         <div class="contact__form fadeInUp">
-                           <form action="{% static 'user_app/assets/mail.php">
+                           <form action="{% url 'contactemail' %}" method="post">
+                              {% csrf_token %}
                               <div class="row">
                                  <div class="col-xxl-6 col-xl-6 col-md-6">
                                     <div class="contact__form-input">
@@ -325,7 +326,15 @@
                                     </div>
                                  </div>
                               </div>
+                              
                            </form>
+                           {% if messages %}
+                                 <script>
+                                    {% for message in messages %}
+                                       alert("{{ message }}");
+                                    {% endfor %}
+                                 </script>
+                              {% endif %}
                         </div>
                      </div>
                   </div>

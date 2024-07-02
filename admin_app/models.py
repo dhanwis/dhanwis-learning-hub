@@ -20,3 +20,15 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='admin/gallery', null=True, blank=True)
     shorts_url = models.CharField(max_length=500, null=True, blank=True)
     yt_url = models.CharField(max_length=500, null=True, blank=True)
+
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100,null=True)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.email}'

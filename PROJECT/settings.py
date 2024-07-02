@@ -149,3 +149,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # New Abstracted Model Connection
 AUTH_USER_MODEL = 'auth_app.User'
+
+
+
+
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'  # Replace with your SMTP server address
+EMAIL_PORT = 587  # Replace with your SMTP server port number
+EMAIL_USE_TLS = True  # Set to True if your SMTP server requires TLS
+EMAIL_HOST_USER = 'akashask2012@outlook.com'  # Replace with your email address
+EMAIL_HOST_PASSWORD = 'Ak@devpy30'  # Replace with your email password or app-specific password
+DEFAULT_FROM_EMAIL = 'akashask2012@gmail.com'  # Replace with the default from email address
+
+# Other Django settings...
+
+
+
+

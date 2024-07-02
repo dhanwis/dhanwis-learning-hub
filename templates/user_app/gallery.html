@@ -24,6 +24,9 @@
       <link rel="stylesheet" href="{% static 'user_app/assets/css/style.css' %}">
 
       <link rel="stylesheet" href="{% static 'user_app/assets/mine/css/mine.css' %}">
+
+      <link rel="stylesheet" href="{% static 'user_app/assets/css/lightbox.css' %}">
+     
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -75,17 +78,17 @@
                      </div>
                   </div>
                   <div class="col-xxl-8 col-xl-8 d-none d-xl-block">
-                     <div class="main-menu main-menu-3 ">
+                     <div class="main-menu main-menu-3 d-flex justify-content-center">
                         <nav id="mobile-menu">
-                            <ul>
-                                <li class="main-menu-space"><a href="{% url 'index' %}">Home</a></li>
-                                <li class="main-menu-space"><a href="{% url 'about' %}">About</a></li>
-                                <li class="main-menu-space"><a href="{% url 'courses' %}">Courses</a></li>
-                                <li class="main-menu-space"><a href="{% url 'placements' %}">Placements</a></li>
-                                <li class="main-menu-space"><a href="{% url 'gallery' %}">Gallery</a></li>
-                                <li class="main-menu-space"><a href="{% url 'careers' %}">Careers</a></li>
-                                <li><a href="{% url 'contact' %}">Contact</a></li>
-                             </ul>
+                           <ul>
+                              <li class="main-menu-space"><a href="{% url 'index' %}">Home</a></li>
+                              <li class="main-menu-space"><a href="{% url 'about' %}">About</a></li>
+                              <li class="main-menu-space"><a href="{% url 'courses' %}">Courses</a></li>
+                              <li class="main-menu-space"><a href="{% url 'placements' %}">Placements</a></li>
+                              <li class="main-menu-space"><a href="{% url 'gallery' %}">Gallery</a></li>
+                              <li class="main-menu-space"><a href="{% url 'careers' %}">Careers</a></li>
+                              <li><a href="{% url 'contact' %}">Contact</a></li>
+                           </ul>
                         </nav>
                      </div>
                      
@@ -115,7 +118,7 @@
                                  style="
                                  max-width: 28px;
                                  margin-bottom: 3px;"> -->
-                                 <a href="" class="btn"
+                                 <a href="https://www.facebook.com/dhanwisacademy?mibextid=ZbWKwL" class="btn"
                                  style="border-radius: 100%;
                                  background-color: #0c87ef;
                                  color: #fff;">
@@ -130,7 +133,7 @@
                               <!-- <img class="logo-white" src="{% static 'user_app/assets/mine/img/whatsapp-icon.png' %}" alt="logo"
                                  style="max-width: 50px;
                                  margin-right: -7px;"> -->
-                                 <a href="" class="btn"
+                                 <a href="https://wa.me/qr/DQCFAUDFMCNXL1" class="btn"
                                  style="border-radius: 100%;
                                  background-color: #00d95f;
                                  color: #fff;
@@ -146,7 +149,7 @@
                               <!-- <img class="logo-white" src="{% static 'user_app/assets/mine/img/instagram-icon.png' %}" alt="logo"
                                  style="max-width: 41px;
                                  margin-bottom: 3px;"> -->
-                                 <a href="" class="btn"
+                                 <a href="https://www.instagram.com/dhanwistechinfosolutions?igsh=aDRrMnpuNWpzaG5w" class="btn"
                                  style="border-radius: 100%;
                                  background-color: #f60577;
                                  color: #fff;
@@ -285,42 +288,48 @@
 
 
         
-         <div class="container">
-            <div class="row pt-50">
-               {% for gallery in galleries %}
-                  {% if gallery.shorts_url %}
-                     <div class="col-12 col-md-4 ">
-                        <div class="">
-                           <iframe width="315" height="560" 
-                              src="https://www.youtube.com/embed/{{ gallery.shorts_url }}"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen>
-                           </iframe>
-                        </div>
-                     </div>
-                  {% endif %}
+       <!-- HTML Structure -->
+<!-- HTML Structure -->
+<div class="containerss">
+   <div class="rowss pt-50">
+       {% for gallery in galleries %}
+       {% if gallery.shorts_url %}
+       <div class="col-12 col-md-4">
+           <div>
+               <iframe width="315" height="560" src="https://www.youtube.com/embed/{{ gallery.shorts_url }}"
+                   title="YouTube video player" frameborder="0"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                   allowfullscreen>
+               </iframe>
+           </div>
+       </div>
+       {% endif %}
 
-                  {% if gallery.image %}
-                     <div class="col-12 col-md-4 ">
-                        <div style="padding-right: 10px;">
-                           <img src="{{ gallery.image.url }}" alt="" width="350px">
-                        </div>
-                     </div>
-                  {% endif %}
-               {% endfor %}
-   
-           
-   
-               <!-- <div class="col-12 col-md-3 ">
-                  <div class="pt-5 ms-3 pl-3">
-                     <img src="{% static 'user_app/assets/img/blog/blog-1.jpg' %}" alt="">
-                  </div>
-               </div> -->
-            
-            </div>
-         </div>
+       {% if gallery.image %}
+       <div class="col-12 col-md-4">
+           <div style="padding-right: 10px;">
+               <img src="{{ gallery.image.url }}" alt="" class="gallery-imgss" data-src="{{ gallery.image.url }}"
+                   width="350px">
+           </div>
+       </div>
+       {% endif %}
+       {% endfor %}
+   </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightboxss" class="lightboxss" onclick="closeLightbox()">
+   <div class="lightbox-contentss">
+       <span class="close" onclick="closeLightbox()">&times;</span>
+       <img id="lightbox-img" src="" alt="">
+       <div class="lightbox-controls">
+           <span class="arrow prev" onclick="prevImage(event)">&#10094;</span>
+           <span class="arrow next" onclick="nextImage(event)">&#10095;</span>
+       </div>
+   </div>
+</div>
+
+
          
         
 
@@ -515,6 +524,8 @@
       <script src="{% static 'user_app/assets/js/wow.min.js' %}"></script>
       <script src="{% static 'user_app/assets/js/imagesloaded.pkgd.min.js' %}"></script>
       <script src="{% static 'user_app/assets/js/main.js' %}"></script>
+      
+      <script src="{% static 'user_app/assets/js/lightbox.js' %}"></script>
    </body>
 </html>
 
