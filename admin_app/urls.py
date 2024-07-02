@@ -27,5 +27,5 @@ urlpatterns = [
     path('gallery/<int:gallery_id>/delete/', gallery_delete, name='gallery-delete'),
     
     
-     path('contact/', contact_view, name='contactemail'),
+    
 ]

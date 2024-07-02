@@ -8598,4 +8598,102 @@ p.checkout-coupon input[type=text]:focus {
   color: #2b4eff;
 }
 
+
+/*----------------------------------------*/
+/*  00. PLACEMENT HOME CSS START
+/*----------------------------------------*/
+
+.custom-services-item {
+  position: relative;
+  padding: 40px 40px;
+  padding-bottom: 45px;
+  box-shadow: 0px 30px 40px 0px rgba(3, 24, 128, 0.2);
+  border-radius: 6px;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .custom-services-item {
+      padding-left: 30px;
+      padding-right: 30px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .custom-services-item {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .custom-services-item {
+      padding-left: 25px;
+      padding-right: 25px;
+  }
+}
+
+.custom-services-item:hover {
+  transform: translateY(-5px) translate3d(0, -5px, 0);
+}
+
+.custom-services-item:hover .custom-link-btn-2 {
+  bottom: 45px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.custom-services-title {
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 17px;
+}
+
+.custom-services-icon {
+  margin-bottom: 43px;
+}
+
+.custom-services-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.custom-services-icon svg path {
+  fill: #ffffff;
+}
+
+.custom-services-content p {
+  color: #ffffff;
+  opacity: 0.8;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+
+.custom-services-content .custom-link-btn-2 {
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
+  visibility: hidden;
+  opacity: 0;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .custom-services-content .custom-link-btn-2 {
+      left: 15px;
+  }
+}
+
+.custom-services-content .custom-link-btn-2:hover {
+  border-color: #ffffff;
+}
+
+.custom-services-icon img {
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Or your preferred border radius */
+}
+
 /*# sourceMappingURL=style.css.map */

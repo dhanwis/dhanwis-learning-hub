@@ -6,9 +6,11 @@ from admin_app.models import Course, Company, Placement, Gallery
 def index(request):
     current_page = 'index'
     companies = Company.objects.all()
+    placements = Placement.objects.all()[:3]  # Fetching first 3 placements as an example
     context = {
         'current_page': current_page,
-        'companies' : companies,
+        'companies': companies,
+        'placements': placements
     }
     return render(request, 'user_app/index.html', context)
 

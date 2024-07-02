@@ -3,11 +3,8 @@ from admin_app.models import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.core.mail import send_mail
-from django.contrib import messages
-from email.parser import BytesParser
-from email.policy import default
-from django.conf import settings
-import imaplib
+from django.http import JsonResponse
+
 # add your views here.
 
 
@@ -231,34 +228,5 @@ def gallery_delete(request, gallery_id):
     gallery_item = Gallery.objects.get(id=gallery_id)
     gallery_item.delete()
     return redirect('gallery-list')
-
-
-def contact_view(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
-            
-            # Construct the email message
-            email_message = f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}'
-
-            # Send email
-            send_mail(
-                subject,
-                email_message,
-                email,
-                [settings.DEFAULT_FROM_EMAIL],  # Send to the site's email address
-                fail_silently=False,
-            )
-
-            # Optionally, redirect to a success page or show a success message
-            return redirect('contactemail')  # Replace 'success_url' with your success URL name or path
-    else:
-        form = ContactForm()
-
-    return redirect("index")
 
 

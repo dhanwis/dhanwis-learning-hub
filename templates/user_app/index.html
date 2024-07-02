@@ -417,6 +417,48 @@
          </section>
          <!-- services area end -->
 
+
+         <!-- placement area start -->
+
+         <section class="services__area pt-115 pb-40 ">
+            <div class="container">
+               <div class="row fadeInUp" >
+                  <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 ">
+                     <div class="section__title-wrapper section-padding mb-60 text-center">
+                        <h2 class="section__title">Discover Our <span class="yellow-bg">Successful Placements <img src="{% static 'user_app/assets/img/shape/yellow-bg-2.png' %}" alt=""></span></h2>
+                        <p> Celebrating the achievements of our talented graduates</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row  ">
+                  {% for placement in placements %}
+                  <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 zoomIn" style="margin-bottom: 30px;">
+                     <div class="services__item mb-30" style="border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                         <div class="services__image">
+                             <img src="{{ placement.image.url }}" alt="Student Image" style="width: 100%; height: auto; border-radius: 10px;">
+                         </div>
+                         <div class="services__content" style="padding: 15px;">
+                             <h3 class="services__title" style="font-size: 19px; color: #000000; margin-top: 10px; margin-bottom: 5px;">
+                                 <a href="{% url 'about' %}" style="text-decoration: none; color: #000000;">
+                                     {{ placement.company_name }}
+                                 </a>
+                             </h3>
+                             <p class="services__designation" style="font-size: 16px; color: #666666; margin-bottom: 10px;">
+                                 {{ placement.designation }}
+                             </p>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 {% endfor %}
+               </div>
+            </div>
+         </section>
+
+         <!-- Placement area end -->
+
+
          <!-- about area start -->
          <section class="about__area pt-90 pb-150">
             <div class="container">
