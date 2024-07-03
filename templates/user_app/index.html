@@ -136,7 +136,7 @@
                               <!-- <img class="logo-white" src="{% static 'user_app/assets/mine/img/whatsapp-icon.png' %}" alt="logo"
                                  style="max-width: 50px;
                                  margin-right: -7px;"> -->
-                                 <a href="" class="btn"
+                                 <a href=" https://wa.me/918086487219 " class="btn"
                                  style="border-radius: 100%;
                                  background-color: #00d95f;
                                  color: #fff;
@@ -420,7 +420,7 @@
 
          <!-- placement area start -->
 
-         <section class="services__area pt-115 pb-40 ">
+         <!-- <section class="services__area pt-115 pb-40 ">
             <div class="container">
                <div class="row fadeInUp" >
                   <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 ">
@@ -439,11 +439,14 @@
                              <img src="{{ placement.image.url }}" alt="Student Image" style="width: 100%; height: auto; border-radius: 10px;">
                          </div>
                          <div class="services__content" style="padding: 15px;">
-                             <h3 class="services__title" style="font-size: 19px; color: #000000; margin-top: 10px; margin-bottom: 5px;">
-                                 <a href="{% url 'about' %}" style="text-decoration: none; color: #000000;">
-                                     {{ placement.company_name }}
-                                 </a>
-                             </h3>
+                           <h3 class="services__title" style="font-size: 19px; color: #000000; margin-top: 10px; margin-bottom: 5px;">
+                              <a href="{% url 'about' %}" style="text-decoration: none; color: #000000;">
+                                  {{ placement.name }}
+                              </a>
+                          </h3>
+                           <p class="services__designation" style="font-size: 16px; color: #222222; margin-bottom: 10px;">
+                              {{ placement.company_name }}
+                           </p>
                              <p class="services__designation" style="font-size: 16px; color: #666666; margin-bottom: 10px;">
                                  {{ placement.designation }}
                              </p>
@@ -454,7 +457,7 @@
                  {% endfor %}
                </div>
             </div>
-         </section>
+         </section> -->
 
          <!-- Placement area end -->
 

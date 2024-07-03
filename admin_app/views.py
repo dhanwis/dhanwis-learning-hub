@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from admin_app.models import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
@@ -142,16 +142,16 @@ def placement_detail(request, placement_id):
 def placement_add(request):
     if request.method == 'POST':
         image = request.FILES.get('image')
+        name = request.POST.get('name')
         company_name = request.POST.get('company_name')
         designation = request.POST.get('designation')
 
-        if image and company_name and designation:
-            new_placement = Placement(image=image, company_name=company_name, designation=designation)
+        if image and name and company_name and designation:
+            new_placement = Placement(image=image, name=name, company_name=company_name, designation=designation)
             new_placement.save()
             return redirect('placement-list')
         
-    else:
-        return render(request, 'admin_app/placement-add.html')
+    return render(request, 'admin_app/placement-add.html')
 
 @login_required(login_url='/auth/admin/login/')
 def placement_edit(request, placement_id):
@@ -161,15 +161,13 @@ def placement_edit(request, placement_id):
         new_image = request.FILES.get('image')
         if new_image:
             placement.image = new_image
-        else:
-            new_image = placement.image
+        placement.name = request.POST.get('name')
         placement.company_name = request.POST.get('company_name')
         placement.designation = request.POST.get('designation')
         placement.save()
         return redirect('placement-list')
         
-    else:
-        return render(request, 'admin_app/placement-edit.html', {'placement': placement})
+    return render(request, 'admin_app/placement-edit.html', {'placement': placement})
 
 @login_required(login_url='/auth/admin/login/')
 def placement_delete(request, placement_id):
@@ -196,37 +194,37 @@ def gallery_add(request):
         shorts_url = request.POST.get('shorts_url')
         yt_url = request.POST.get('yt_url')
 
-        
         gallery = Gallery(
             image=image,
             shorts_url=shorts_url,
-            yt_url=yt_url
-            )
+            yt_url=yt_url,
+        )
         gallery.save()
         return redirect('gallery-list')
-        
-    else:
-        return render(request, 'admin_app/gallery-add.html')
+
+    return render(request, 'admin_app/gallery-add.html')
 
 @login_required(login_url='/auth/admin/login/')
 def gallery_edit(request, gallery_id):
-    gallery_item = Gallery.objects.get(id=gallery_id)
+    gallery_item = get_object_or_404(Gallery, id=gallery_id)
 
     if request.method == 'POST':
         image = request.FILES.get('image')
+        shorts_url = request.POST.get('shorts_url')
+        yt_url = request.POST.get('yt_url')
 
         if image:
             gallery_item.image = image
-            gallery_item.save()
-            return redirect('gallery-list')
-        
-    else:
-        return render(request, 'admin_app/gallery-edit.html', {'gallery_item': gallery_item})
+        gallery_item.shorts_url = shorts_url
+        gallery_item.yt_url = yt_url
+        gallery_item.save()
+        return redirect('gallery-list')
+
+    return render(request, 'admin_app/gallery-edit.html', {'gallery_item': gallery_item})
 
 @login_required(login_url='/auth/admin/login/')
 def gallery_delete(request, gallery_id):
-    gallery_item = Gallery.objects.get(id=gallery_id)
+    gallery_item = get_object_or_404(Gallery, id=gallery_id)
     gallery_item.delete()
     return redirect('gallery-list')
-
 

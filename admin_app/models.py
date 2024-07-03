@@ -13,6 +13,7 @@ class Company(models.Model):
 
 class Placement(models.Model):
     image = models.ImageField(upload_to='admin/palcements', null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True)
     company_name = models.CharField(max_length=500, null=True, blank=True)
     designation = models.CharField(max_length=500, null=True, blank=True)
 
@@ -20,6 +21,7 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='admin/gallery', null=True, blank=True)
     shorts_url = models.CharField(max_length=500, null=True, blank=True)
     yt_url = models.CharField(max_length=500, null=True, blank=True)
+    instagram_url = models.CharField(max_length=500, null=True, blank=True)
 
 
 

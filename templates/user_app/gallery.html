@@ -133,7 +133,7 @@
                               <!-- <img class="logo-white" src="{% static 'user_app/assets/mine/img/whatsapp-icon.png' %}" alt="logo"
                                  style="max-width: 50px;
                                  margin-right: -7px;"> -->
-                                 <a href="https://wa.me/qr/DQCFAUDFMCNXL1" class="btn"
+                                 <a href=" https://wa.me/918086487219 " class="btn"
                                  style="border-radius: 100%;
                                  background-color: #00d95f;
                                  color: #fff;
@@ -293,17 +293,26 @@
 <div class="containerss">
    <div class="rowss pt-50">
        {% for gallery in galleries %}
-       {% if gallery.shorts_url %}
-       <div class="col-12 col-md-4">
-           <div>
-               <iframe width="315" height="560" src="https://www.youtube.com/embed/{{ gallery.shorts_url }}"
-                   title="YouTube video player" frameborder="0"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                   allowfullscreen>
-               </iframe>
-           </div>
-       </div>
-       {% endif %}
+       <div>
+         {% if gallery.shorts_url %}
+             <iframe width="315" height="560" src="https://www.youtube.com/embed/{{ gallery.shorts_url }}"
+                     title="YouTube video player" frameborder="0"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                     allowfullscreen>
+             </iframe>
+         {% elif gallery.yt_url %}
+             <iframe width="315" height="560" src="https://www.youtube.com/embed/{{ gallery.yt_url }}"
+                     title="YouTube video player" frameborder="0"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                     allowfullscreen>
+             </iframe>
+         {% elif gallery.instagram_url %}
+             <iframe src="https://www.instagram.com/p/{{ gallery.instagram_url }}/embed" 
+                     width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true">
+             </iframe>
+         {% endif %}
+     </div>
+     
 
        {% if gallery.image %}
        <div class="col-12 col-md-4">
